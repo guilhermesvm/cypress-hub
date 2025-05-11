@@ -4,4 +4,5 @@ node_modules/
 *.tmp
 /cypress/videos
 /cypress/results
+/cypress/screenshots
 .gitignore
