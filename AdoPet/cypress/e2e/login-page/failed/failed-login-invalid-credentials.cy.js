@@ -1,10 +1,12 @@
 describe('Login Page', () => {
+    const INVALID_DATA = 'test'
+
     beforeEach(() => {
         cy.visit('https://adopet-frontend-cypress.vercel.app/login');
     });
 
     it('Failed Login - invalid credentials', () => {
-        cy.login('test', 'test')
+        cy.login(INVALID_DATA, INVALID_DATA)
         cy.get('p.error').should('be.visible').and('contain', 'Por favor, verifique o email digitado');
         cy.get('p.error').should('be.visible').and('contain', 'A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres');
     });
