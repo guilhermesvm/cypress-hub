@@ -6,13 +6,12 @@ describe('Register Page', () => {
   });
 
   it('Successful Registration', () => {
+    const randomName = faker.person.fullName();
     const randomEmail = faker.internet.email();
-
-    cy.get('[data-test="input-name"]').type('Guilherme QA');
-    cy.get('[data-test="input-email"]').type(randomEmail);
-    cy.get('[data-test="input-password"]').type('TestingQA@123');
-    cy.get('[data-test="input-confirm-password"]').type('TestingQA@123');
-    cy.get('[data-test="submit-button"]').click();
+    const randomPassword = faker.string.alpha(1).toUpperCase() + faker.string.numeric(1) + faker.string.alpha(5);
+    const confirmPassword = randomPassword;
+  
+    cy.register(randomName, randomEmail, randomPassword, confirmPassword)
     cy.url().should('include', '/login');
   });
 });

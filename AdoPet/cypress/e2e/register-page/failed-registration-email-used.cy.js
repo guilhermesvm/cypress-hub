@@ -1,13 +1,15 @@
 describe('Register Page', () => {
+  const NAME = 'Guilherme QA';
+  const EMAIL = 'guilherme.test@qa.com';
+  const PASSWORD = 'TestingQA@123';
+  const CONFIRM_PASSWORD = PASSWORD;
+
   beforeEach(() => {
     cy.visit('https://adopet-frontend-cypress.vercel.app/cadastro');
   });
+
   it('Failed Registration - Email Already in Use', () => {
-    cy.get('[data-test="input-name"]').type('Guilherme QA');
-    cy.get('[data-test="input-email"]').type('guilherme.test@qa.com');
-    cy.get('[data-test="input-password"]').type('TestingQA@123');
-    cy.get('[data-test="input-confirm-password"]').type('TestingQA@123');
-    cy.get('[data-test="submit-button"]').click();
+    cy.register(NAME, EMAIL, PASSWORD, CONFIRM_PASSWORD)
     cy.get('p.error').should('be.visible').and('contain', 'Falha ao cadastrar!');
   });
 });

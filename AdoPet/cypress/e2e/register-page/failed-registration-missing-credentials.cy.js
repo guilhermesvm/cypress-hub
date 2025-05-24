@@ -5,8 +5,11 @@ describe('Register Page', () => {
 
   it('Failed Registration - Missing Credentials', () => {
     cy.get('[data-test="submit-button"]').click();
-    cy.get('p.error').should('be.visible').and('contain', 'É necessário informar um endereço de email');
-    cy.get('p.error').should('be.visible').and('contain', 'Crie uma senha');
-    cy.get('p.error').should('be.visible').and('contain', 'Repita a senha criada acima');
+
+    cy.get('p.error').should('be.visible')
+    .and('contain', 'É necessário informar um endereço de email')
+    .and('contain', 'É necessário informar um endereço de email')
+    .and('contain', 'Crie uma senha')
+    .and('contain', 'Repita a senha criada acima');
   });
 });
