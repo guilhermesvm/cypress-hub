@@ -23,9 +23,7 @@ describe('Login Page', () => {
         cy.get('p.error').should('be.visible').and('contain', 'Falha no login. Consulte suas credenciais.');
     });
 
-    it('Failed Login - correct email and incorrect password', () => {
-
-        
+    it('Failed Login - correct email and incorrect password', () => {  
         cy.login(VALID_EMAIL, INCORRECT_PASSWORD);
         cy.wait('@stubPost');
         cy.get('p.error').should('be.visible').and('contain', 'Falha no login. Consulte suas credenciais.');
