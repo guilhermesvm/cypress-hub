@@ -1,5 +1,6 @@
+import { INVALID_DATA } from "../../../support/constants/credentials.js"
+
 describe('Login Page', () => {
-    const INVALID_DATA = 'test'
 
     beforeEach(() => {
         cy.visit('https://adopet-frontend-cypress.vercel.app/login');

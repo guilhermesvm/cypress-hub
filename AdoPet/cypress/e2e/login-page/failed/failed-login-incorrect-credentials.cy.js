@@ -1,9 +1,6 @@
-describe('Login Page', () => {
-    const VALID_EMAIL = 'guilherme.test@qa.com'
-    const VALID_PASSWORD = 'TestingQA@123'
-    const INCORRECT_EMAIL = 'graziea@gmail.com'
-    const INCORRECT_PASSWORD = 'QAovertest123!'
+import { VALID_EMAIL, VALID_PASSWORD, INCORRECT_EMAIL, INCORRECT_PASSWORD } from "../../../support/constants/credentials.js"
 
+describe('Login Page', () => {
     beforeEach(() => {
         cy.visit('https://adopet-frontend-cypress.vercel.app/login');
         cy.intercept('POST', 'https://adopet-api-i8qu.onrender.com/adotante/login', {
