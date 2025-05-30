@@ -6,3 +6,4 @@ node_modules/
 /cypress/results
 /cypress/screenshots
 .gitignore
+cypress.env.json
